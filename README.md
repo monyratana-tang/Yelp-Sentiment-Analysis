@@ -1,5 +1,4 @@
 # Yelp Sentiment Analysis 🍽️📊
-<img src="images/luke-chesser-CxBx_J3yp9g-unsplash.jpg" align="right" width="275" style="margin-left: 15px;"/>
 
 This project applies natural language processing (NLP) and sentiment analysis techniques to Yelp restaurant reviews in order to better understand customer experience, satisfaction drivers, and common service complaints. Using R, the analysis transforms unstructured text data into actionable business insights by identifying frequently mentioned themes, emotional sentiment patterns, and key areas influencing customer perception.
 
@@ -14,12 +13,6 @@ Online customer reviews strongly influence restaurant reputation and consumer de
 - Which words are most strongly associated with negative sentiment?
 - What aspects of the dining experience drive customer satisfaction?
 - Which operational areas appear most responsible for complaints?
-
-## Dataset
-
-The dataset used in this project was obtained from Kaggle and contains Yelp restaurant review text paired with sentiment labels.
-
-Source: [Yelp Labelled Dataset – Kaggle](https://www.kaggle.com/datasets)
 
 ### Variables
 
@@ -82,8 +75,7 @@ Additionally, the dataset size is relatively small compared to large-scale comme
 ---
 
 ### Word Frequency & Customer Themes
-
-<img src="images/yelp_wordcloud.png" width="700"/>
+<img src="images/Word Cloud.png" width="700"/>
 
 The word cloud highlights the most frequently occurring terms within Yelp restaurant reviews. Words such as “food,” “service,” “friendly,” and “delicious” appeared prominently, suggesting that customer experiences are strongly shaped by food quality and service interactions. While many positive terms dominate the visualization, several negative terms also appear, indicating areas where customer dissatisfaction exists.
 
@@ -91,29 +83,23 @@ The word cloud highlights the most frequently occurring terms within Yelp restau
 
 ### Sentiment Distribution Analysis
 
-<img src="images/yelp_sentiment_chart.png" width="700"/>
+<img src="images/Sentiment Analysis.png" width="700"/>
 
-Sentiment analysis revealed that positive sentiment words appeared more frequently than negative sentiment words overall. However, negative experiences remain significant and are commonly associated with slow service, poor food quality, and pricing dissatisfaction. These findings suggest restaurants should focus operational improvements on consistency, speed of service, and perceived customer value.
+Sentiment analysis revealed that positive sentiment words appeared more frequently than negative sentiment words overall. However, negative experiences remain significant and are commonly associated with slow service, poor food quality, and dissatisfaction with pricing. These findings suggest that restaurants should focus on operational improvements to consistency, service speed, and perceived customer value.
 
----
 
-### Most Common Negative Sentiment Drivers
-
-<img src="images/yelp_negative_words.png" width="700"/>
-
-Negative sentiment terms such as “bad,” “disappointed,” “bland,” “worst,” and “terrible” appeared frequently throughout the dataset. Many complaints were connected to customer service experiences, food quality, and wait times. Identifying these recurring themes can help restaurants prioritize operational improvements that directly impact customer satisfaction.
 
 ## Recommendations
 
-Based on the analysis, restaurants should prioritize improvements in customer service efficiency, food consistency, and perceived value. Negative sentiment frequently referenced slow service, bland food, and pricing dissatisfaction, suggesting these operational areas significantly influence customer perception.
+Based on the analysis, restaurants should prioritize improvements in customer service efficiency, food consistency, and perceived value. Negative sentiment frequently cited slow service, bland food, and dissatisfaction with pricing, suggesting that these operational areas significantly influence customer perception.
 
 Additionally, restaurants should continuously monitor online reviews to identify recurring customer concerns before they become larger reputation issues. Businesses can also leverage positive themes such as friendly service and atmosphere in marketing campaigns to strengthen brand perception and customer loyalty.
 
-From a strategic perspective, sentiment analysis can provide businesses with an ongoing feedback mechanism that supports data-driven operational decisions and improves overall customer experience.
+Sentiment analysis provides businesses with a continuous feedback loop that supports data-driven decision-making and improves the customer experience.
 
 ## Conclusion
 
-Yes, the project successfully identified meaningful customer sentiment patterns within Yelp restaurant reviews. The analysis revealed that while customer experiences were generally positive overall, recurring complaints related to service quality, food consistency, and pricing were strongly associated with negative sentiment. These findings demonstrate how natural language processing can transform unstructured customer feedback into actionable business insights.
+Yes, the project successfully identified meaningful patterns of customer sentiment in Yelp restaurant reviews. The analysis revealed that, while customer experiences were generally positive, recurring complaints about service quality, food consistency, and pricing were strongly associated with negative sentiment. These findings demonstrate how natural language processing can transform unstructured customer feedback into actionable business insights.
 
 ## Files
 
@@ -121,17 +107,3 @@ Yes, the project successfully identified meaningful customer sentiment patterns 
 - `Yelp_Sentiment_Analysis.html` → Final knitted report
 - `Yelp_Sentiment_Analysis.R` → Clean R script
 - `yelp_labelled.csv` → Dataset
-
-## References
-
-UCI Machine Learning Repository. Yelp Labelled Sentences Dataset.  
-https://archive.ics.uci.edu/
-
-Silge, J., & Robinson, D. *Tidy Text Mining with R*.  
-https://www.tidytextmining.com/
-
-OpenAI. *ChatGPT*. Supplemental support used for R coding assistance.  
-https://chat.openai.com/
-
-Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. *R for Data Science: Data Visualization*.  
-https://r4ds.hadley.nz/data-visualize.html
