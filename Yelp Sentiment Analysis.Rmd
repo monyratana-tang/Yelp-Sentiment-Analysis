@@ -1,0 +1,99 @@
+---
+title: "Yelp Sentiment Analysis"
+author: "Monyratana Tang"
+date: "2026-05-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+library(tidytext)
+library(wordcloud)
+library(RColorBrewer)
+```
+
+## Load Dataset
+
+```{r}
+Yelp <- read.delim("~/Desktop/BZAN 6351 | Basic Programming for Business Analytics/Yelp/yelp_labelled.csv,
+  header = FALSE,
+  sep = ","
+)
+
+Yelp <- Yelp[, 1:2]
+
+colnames(Yelp) <- c("text", "label")
+
+head(Yelp)
+colnames(Yelp)
+```
+
+## Text Mining Preparation
+
+```{r}
+words <- Yelp %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words, by = "word") %>%
+  filter(!word %in% c("0", "1"))
+
+word_count <- words %>%
+  count(word, sort = TRUE)
+
+head(word_count)
+```
+
+## Word Cloud
+
+```{r}
+wordcloud(
+  words = word_count$word,
+  freq = word_count$n,
+  max.words = 100,
+  scale = c(6, 1),
+  random.order = FALSE,
+  colors = brewer.pal(8, "Set3")
+)
+```
+
+## Sentiment Analysis
+
+```{r}
+sentiment <- words %>%
+  inner_join(get_sentiments("bing"), by = "word") %>%
+  count(sentiment)
+
+sentiment
+```
+
+```{r}
+ggplot(sentiment, aes(x = sentiment, y = n, fill = sentiment)) +
+  geom_col() +
+  labs(
+    title = "Sentiment Analysis of Yelp Reviews",
+    x = "Sentiment",
+    y = "Word Count"
+  ) +
+  theme_minimal()
+```
+
+## Most Common Sentiment Words
+
+```{r}
+sentiment_words <- words %>%
+  inner_join(get_sentiments("bing"), by = "word") %>%
+  count(word, sentiment, sort = TRUE)
+
+sentiment_words %>%
+  group_by(sentiment) %>%
+  slice_max(n, n = 10)
+```
+
+## Interpretation
+
+Overall, the word cloud suggests that consumers are generally having positive experiences. However, when separating the data into positive and negative sentiment, a more balanced picture emerges. While positive terms appear more frequently, there is still a noticeable presence of negative language. Much of the dissatisfaction appears to be related to food quality, pricing, and poor customer service. These areas can be key opportunities for improvement to support a more positive customer experience.
